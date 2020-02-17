@@ -13,7 +13,7 @@ class MyApp : Application()
     {
         private lateinit var daggerComponent: AppComponent
 
-        public fun getDComponent(): AppComponent = daggerComponent
+        fun getDComponent(): AppComponent = daggerComponent
     }
 
     override fun onCreate()

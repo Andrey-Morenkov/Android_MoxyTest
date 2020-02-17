@@ -15,7 +15,7 @@ import javax.inject.Inject
 class MainPresenter: MvpPresenter<MainView>(), MainInteractor
 {
     private var seconds: Int = 0
-    private lateinit var ticker: Job;
+    private var ticker: Job
 
     @Inject
     lateinit var db: Realm
