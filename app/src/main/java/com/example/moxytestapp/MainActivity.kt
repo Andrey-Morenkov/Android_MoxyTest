@@ -6,13 +6,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
-import com.pawegio.kandroid.hide
+import com.example.moxytestapp.realm.DbTestClass
 import com.pawegio.kandroid.i
-import com.pawegio.kandroid.textWatcher
+import com.pawegio.kandroid.toast
+import io.realm.Realm
+import io.realm.RealmResults
+import io.realm.kotlin.where
 import moxy.MvpAppCompatActivity
 import moxy.presenter.InjectPresenter
+import javax.inject.Inject
 
 
 class MainActivity : MvpAppCompatActivity(), MainView
@@ -37,11 +39,7 @@ class MainActivity : MvpAppCompatActivity(), MainView
         testButton = findViewById(R.id.btnTest)
         progressBar = findViewById(R.id.progressBarr)
 
-        progressBar.hide(true)
-
-        //inputField.textWatcher{
-        //    //afterTextChanged { mainPresenter.onInputTextChanged(it.toString()) }
-        //}
+        progressBar.visibility = View.INVISIBLE
 
         testButton.setOnClickListener { mainPresenter.onTestButtonClicked() }
     }
@@ -76,5 +74,9 @@ class MainActivity : MvpAppCompatActivity(), MainView
     {
         i("==== SetText $txt ====")
         inputField.setText(txt, TextView.BufferType.EDITABLE)
+    }
+
+    override fun showToast(txt: String) {
+        toast(txt)
     }
 }

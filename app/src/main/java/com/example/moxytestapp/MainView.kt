@@ -16,4 +16,7 @@ interface MainView : MvpView
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun setText(txt: String)
+
+    @StateStrategyType(SkipStrategy::class)
+    fun showToast(txt: String)
 }
